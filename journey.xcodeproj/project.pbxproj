@@ -13,6 +13,7 @@
 		5B8202FB19EF1BA900891F1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8202FA19EF1BA900891F1F /* Images.xcassets */; };
 		5B8202FE19EF1BA900891F1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8202FC19EF1BA900891F1F /* LaunchScreen.xib */; };
 		5B82030A19EF1BA900891F1F /* journeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82030919EF1BA900891F1F /* journeyTests.swift */; };
+		5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */; };
 		5BE473B619FBC48900D9BA8D /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE473B519FBC48900D9BA8D /* DashboardViewController.swift */; };
 		5BE4741819FC177C00D9BA8D /* DashboardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4741719FC177C00D9BA8D /* DashboardDataSource.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		5B82030319EF1BA900891F1F /* journeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = journeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B82030819EF1BA900891F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B82030919EF1BA900891F1F /* journeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journeyTests.swift; sourceTree = "<group>"; };
+		5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
 		5BE473B519FBC48900D9BA8D /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5BE4741719FC177C00D9BA8D /* DashboardDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardDataSource.swift; path = ../DashboardDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				5B8202F319EF1BA900891F1F /* AppDelegate.swift */,
 				5B8202F519EF1BA900891F1F /* ViewController.swift */,
 				5B8202F719EF1BA900891F1F /* Main.storyboard */,
+				5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */,
 				5BE473B519FBC48900D9BA8D /* DashboardViewController.swift */,
 				5B8202FA19EF1BA900891F1F /* Images.xcassets */,
 				5B8202FC19EF1BA900891F1F /* LaunchScreen.xib */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B8202F619EF1BA900891F1F /* ViewController.swift in Sources */,
+				5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */,
 				5BE473B619FBC48900D9BA8D /* DashboardViewController.swift in Sources */,
 				5BE4741819FC177C00D9BA8D /* DashboardDataSource.swift in Sources */,
 				5B8202F419EF1BA900891F1F /* AppDelegate.swift in Sources */,
