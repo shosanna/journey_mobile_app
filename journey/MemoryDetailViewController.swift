@@ -13,7 +13,12 @@ class MemoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        memoryDetailText.text = memory
         // Do any additional setup after loading the view.
     }
+    
+    var memory: String?
 
+    @IBOutlet weak var memoryDetailDate: UILabel!
+    @IBOutlet weak var memoryDetailText: UILabel!
 }

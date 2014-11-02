@@ -1,14 +1,14 @@
 //
-//  SpecialTableViewCell.swift
+//  DashboardTableViewCell.swift
 //  journey
 //
-//  Created by Zuzana Dostálová on 29/10/14.
+//  Created by Zuzana Dostálová on 31/10/14.
 //  Copyright (c) 2014 zuzana.dostalova. All rights reserved.
 //
 
 import UIKit
 
-class SpecialTableViewCell: UITableViewCell {
+class DashboardTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +21,11 @@ class SpecialTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBOutlet weak var DashboardDate: UILabel!
+    
+    @IBOutlet weak var DashboardImage: UIImageView!
+    
+    @IBOutlet weak var DashboardText: UILabel!
+    
+    @IBOutlet weak var DashboardTitle: UILabel!
 }

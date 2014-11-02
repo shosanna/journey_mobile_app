@@ -8,22 +8,29 @@
 
 import UIKit
 
-class MemoriesViewController: UIViewController, UIScrollViewDelegate {
+class MemoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-        override func viewDidLoad() {
+    var memories = [String]()
+    
+    override func viewDidLoad() {
             super.viewDidLoad()
-            ScrollView.scrollEnabled = true;
-            ScrollView.contentSize =  CGSize(width: 640.0, height: 640.0)
-            ScrollView.addSubview(FormView)
-            ScrollView.addSubview(MemoriesView)
-            
+ 
             var old = FormView.frame
             FormView.frame = CGRectMake(old.origin.x, old.origin.y, old.width, 0);
             FormView.alpha = 0
             
-            MemoryText.layer.borderWidth = 1;
+            MemoryText.layer.borderWidth = 0.5;
             MemoryText.layer.borderColor = DateField.layer.borderColor
             MemoryText.layer.cornerRadius = 5;
+        
+            // Registering custom cell
+            var nipName=UINib(nibName: "MemoryTableViewCell", bundle: nil)
+            self.TableView.registerNib(nipName, forCellReuseIdentifier: "Memory")
+        
+        if (memories.count < 0 ) {
+            TableView.hidden = true
+        }
+
 
     }
 
@@ -37,17 +44,26 @@ class MemoriesViewController: UIViewController, UIScrollViewDelegate {
             }
 
         })
-
     }
     
     @IBAction func memorySubmit(sender: UIButton) {
         if (PlaceField.hasText() && DateField.hasText() && MemoryText.hasText()) {
             
             infoLabel.hidden = true;
+            memories.append(MemoryText.text)
+            TableView.reloadData()
             
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-            navigationController?.pushViewController(vc, animated: true)
+            PlaceField.text = ""
+            MemoryText.text = ""
+            DateField.text = ""
+            
+            PlaceField.resignFirstResponder()
+            MemoryText.resignFirstResponder()
+            DateField.resignFirstResponder()
+            
+//            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
+//            navigationController?.pushViewController(vc, animated: true)
             
         } else {
             infoLabel.text = "All fields are required!"
@@ -55,9 +71,45 @@ class MemoriesViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBOutlet weak var ScrollView: UIScrollView!
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return memories.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // Cell definition
+        let cell = tableView.dequeueReusableCellWithIdentifier("Memory", forIndexPath: indexPath) as MemoryTableViewCell
+        
+        if ( memories.count > 0 && !memories[indexPath.row].isEmpty ) {
+             cell.MemoryText.text = memories[indexPath.row]
+        }
+       
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100.0
+    }
+
+    var selectedIndex: NSIndexPath?
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndex = indexPath
+        performSegueWithIdentifier("memoryDetail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "memoryDetail") {
+            let vc = segue.destinationViewController as MemoryDetailViewController
+            vc.memory = memories[selectedIndex!.row]
+        }
+    }
+    
+    @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var FormView: UIView!
-    @IBOutlet weak var MemoriesView: UIView!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var MemoryText: UITextView!
     @IBOutlet weak var PlaceField: UITextField!
