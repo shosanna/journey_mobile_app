@@ -12,10 +12,13 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
         
-        navigationController?.pushViewController(vc, animated: false)
+        if (!Authentication().isLoggedIn()) {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
+            navigationController?.pushViewController(vc, animated: false)
+        }
+        
 
         // Do any additional setup after loading the view.
     }

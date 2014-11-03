@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5B8202F419EF1BA900891F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8202F319EF1BA900891F1F /* AppDelegate.swift */; };
-		5B8202F619EF1BA900891F1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8202F519EF1BA900891F1F /* ViewController.swift */; };
 		5B8202F919EF1BA900891F1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8202F719EF1BA900891F1F /* Main.storyboard */; };
 		5B8202FB19EF1BA900891F1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8202FA19EF1BA900891F1F /* Images.xcassets */; };
 		5B8202FE19EF1BA900891F1F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B8202FC19EF1BA900891F1F /* LaunchScreen.xib */; };
 		5B82030A19EF1BA900891F1F /* journeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82030919EF1BA900891F1F /* journeyTests.swift */; };
 		5BA12BC319FFC34000F87061 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA12BC219FFC34000F87061 /* LoginViewController.swift */; };
 		5BA12BC51A00472500F87061 /* MemoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */; };
-		5BAF62811A016C4800B5B8E8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF62801A016C4800B5B8E8 /* TableViewController.swift */; };
 		5BAF62891A02D15E00B5B8E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */; };
 		5BAF628C1A03001C00B5B8E8 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */; };
 		5BAF628D1A03001C00B5B8E8 /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */; };
@@ -23,6 +21,7 @@
 		5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */; };
 		5BF9CCCE1A06B4530012974F /* MemoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */; };
 		5BF9CCCF1A06B4530012974F /* MemoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF9CCCD1A06B4530012974F /* MemoryTableViewCell.xib */; };
+		5BF9CCD21A06EA740012974F /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9CCD11A06EA740012974F /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		5B8202F219EF1BA900891F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B8202F319EF1BA900891F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B8202F519EF1BA900891F1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B8202F819EF1BA900891F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B8202FA19EF1BA900891F1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B8202FD19EF1BA900891F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 		5B82030919EF1BA900891F1F /* journeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journeyTests.swift; sourceTree = "<group>"; };
 		5BA12BC219FFC34000F87061 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryDetailViewController.swift; sourceTree = "<group>"; };
-		5BAF62801A016C4800B5B8E8 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ../DashboardViewController.swift; sourceTree = "<group>"; };
 		5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 		5BF9CCCB1A0686200012974F /* journeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = journeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryTableViewCell.swift; sourceTree = "<group>"; };
 		5BF9CCCD1A06B4530012974F /* MemoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoryTableViewCell.xib; sourceTree = "<group>"; };
+		5BF9CCD11A06EA740012974F /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +74,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B349C311A082AD1005ECBB1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */,
+				5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */,
+				5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */,
+				5BD3A70F1A0054100038982D /* ProfileViewController.swift */,
+				5BA12BC219FFC34000F87061 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		5B8202E519EF1BA900891F1F = {
 			isa = PBXGroup;
 			children = (
@@ -89,19 +99,10 @@
 		5B8202F019EF1BA900891F1F /* journey */ = {
 			isa = PBXGroup;
 			children = (
+				5B349C311A082AD1005ECBB1 /* Controllers */,
+				5BF9CCD31A06EAF70012974F /* Views */,
+				5BF9CCD01A06EA560012974F /* Models */,
 				5B8202F319EF1BA900891F1F /* AppDelegate.swift */,
-				5B8202F519EF1BA900891F1F /* ViewController.swift */,
-				5B8202F719EF1BA900891F1F /* Main.storyboard */,
-				5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */,
-				5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */,
-				5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */,
-				5BD3A70F1A0054100038982D /* ProfileViewController.swift */,
-				5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */,
-				5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */,
-				5BF9CCCD1A06B4530012974F /* MemoryTableViewCell.xib */,
-				5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */,
-				5BA12BC219FFC34000F87061 /* LoginViewController.swift */,
-				5BAF62801A016C4800B5B8E8 /* TableViewController.swift */,
 				5B8202FA19EF1BA900891F1F /* Images.xcassets */,
 				5B8202FC19EF1BA900891F1F /* LaunchScreen.xib */,
 				5B8202F119EF1BA900891F1F /* Supporting Files */,
@@ -132,6 +133,26 @@
 				5B82030819EF1BA900891F1F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5BF9CCD01A06EA560012974F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BF9CCD11A06EA740012974F /* Authentication.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5BF9CCD31A06EAF70012974F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B8202F719EF1BA900891F1F /* Main.storyboard */,
+				5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */,
+				5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */,
+				5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */,
+				5BF9CCCD1A06B4530012974F /* MemoryTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,12 +261,11 @@
 				5BA12BC51A00472500F87061 /* MemoryDetailViewController.swift in Sources */,
 				5BF9CCCE1A06B4530012974F /* MemoryTableViewCell.swift in Sources */,
 				5BA12BC319FFC34000F87061 /* LoginViewController.swift in Sources */,
-				5B8202F619EF1BA900891F1F /* ViewController.swift in Sources */,
 				5BAF628C1A03001C00B5B8E8 /* DashboardTableViewCell.swift in Sources */,
-				5BAF62811A016C4800B5B8E8 /* TableViewController.swift in Sources */,
 				5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */,
 				5BD3A7101A0054100038982D /* ProfileViewController.swift in Sources */,
 				5B8202F419EF1BA900891F1F /* AppDelegate.swift in Sources */,
+				5BF9CCD21A06EA740012974F /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

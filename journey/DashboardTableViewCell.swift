@@ -9,7 +9,12 @@
 import UIKit
 
 class DashboardTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var dashboardDate: UILabel!
+    @IBOutlet weak var dashboardImage: UIImageView!
+    @IBOutlet weak var dashboardText: UILabel!
+    @IBOutlet weak var dashboardTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,11 +26,4 @@ class DashboardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBOutlet weak var DashboardDate: UILabel!
-    
-    @IBOutlet weak var DashboardImage: UIImageView!
-    
-    @IBOutlet weak var DashboardText: UILabel!
-    
-    @IBOutlet weak var DashboardTitle: UILabel!
 }

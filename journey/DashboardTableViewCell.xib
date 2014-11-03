@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DailyTask" rowHeight="75" id="KGk-i7-Jjw" customClass="DashboardTableViewCell" customModule="journey" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dailyTask" rowHeight="75" id="KGk-i7-Jjw" customClass="DashboardTableViewCell" customModule="journey" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -76,10 +76,10 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="DashboardDate" destination="oyB-HB-DPl" id="vv0-cM-Fnj"/>
-                <outlet property="DashboardImage" destination="J1Q-Oe-gqx" id="7fx-Ie-HHX"/>
-                <outlet property="DashboardText" destination="VS4-6V-a65" id="f3Y-Lf-eq5"/>
-                <outlet property="DashboardTitle" destination="eUm-hP-Xxu" id="ZIZ-Yh-OfF"/>
+                <outlet property="dashboardDate" destination="oyB-HB-DPl" id="GQs-GR-8DQ"/>
+                <outlet property="dashboardImage" destination="J1Q-Oe-gqx" id="zCp-Mk-XAf"/>
+                <outlet property="dashboardText" destination="VS4-6V-a65" id="yVq-VN-8XM"/>
+                <outlet property="dashboardTitle" destination="eUm-hP-Xxu" id="u39-mM-9RS"/>
             </connections>
             <point key="canvasLocation" x="478" y="338.5"/>
         </tableViewCell>

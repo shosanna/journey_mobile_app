@@ -12,58 +12,67 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
 
     var memories = [String]()
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var formView: UIView!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var memoryText: UITextView!
+    @IBOutlet weak var placeField: UITextField!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    
     override func viewDidLoad() {
             super.viewDidLoad()
  
-            var old = FormView.frame
-            FormView.frame = CGRectMake(old.origin.x, old.origin.y, old.width, 0);
-            FormView.alpha = 0
+            var old = formView.frame
+            formView.frame = CGRectMake(old.origin.x, old.origin.y, old.width, 0);
+            formView.alpha = 0
             
-            MemoryText.layer.borderWidth = 0.5;
-            MemoryText.layer.borderColor = DateField.layer.borderColor
-            MemoryText.layer.cornerRadius = 5;
+            memoryText.layer.borderWidth = 0.5;
+            memoryText.layer.borderColor = dateField.layer.borderColor
+            memoryText.layer.cornerRadius = 5;
         
             // Registering custom cell
             var nipName=UINib(nibName: "MemoryTableViewCell", bundle: nil)
-            self.TableView.registerNib(nipName, forCellReuseIdentifier: "Memory")
-        
-        if (memories.count < 0 ) {
-            TableView.hidden = true
-        }
-
-
+            self.tableView.registerNib(nipName, forCellReuseIdentifier: "memory")
     }
 
 
-    @IBAction func AddMemory(sender: UIButton) {
+    @IBAction func showMemoryForm(sender: UIButton) {
         UIView.animateWithDuration(0.5, animations: {
-            if (self.FormView.alpha == 0) {
-                self.FormView.alpha = 1
+            if (self.formView.alpha == 0) {
+                self.formView.alpha = 1
             } else {
-                self.FormView.alpha = 0
+                self.formView.alpha = 0
             }
 
         })
     }
     
     @IBAction func memorySubmit(sender: UIButton) {
-        if (PlaceField.hasText() && DateField.hasText() && MemoryText.hasText()) {
+        if (placeField.hasText() && dateField.hasText() && memoryText.hasText()) {
             
             infoLabel.hidden = true;
-            memories.append(MemoryText.text)
-            TableView.reloadData()
             
-            PlaceField.text = ""
-            MemoryText.text = ""
-            DateField.text = ""
-            
-            PlaceField.resignFirstResponder()
-            MemoryText.resignFirstResponder()
-            DateField.resignFirstResponder()
-            
-//            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-//            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-//            navigationController?.pushViewController(vc, animated: true)
+      
+            if (Authentication().isLoggedIn()) {
+                memories.append(memoryText.text)
+                tableView.reloadData()
+                
+                placeField.text = ""
+                memoryText.text = ""
+                dateField.text = ""
+                
+                placeField.resignFirstResponder()
+                memoryText.resignFirstResponder()
+                dateField.resignFirstResponder()
+            } else {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
+                navigationController!.pushViewController(vc, animated: true)
+            }
+
             
         } else {
             infoLabel.text = "All fields are required!"
@@ -80,10 +89,10 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Cell definition
-        let cell = tableView.dequeueReusableCellWithIdentifier("Memory", forIndexPath: indexPath) as MemoryTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("memory", forIndexPath: indexPath) as MemoryTableViewCell
         
         if ( memories.count > 0 && !memories[indexPath.row].isEmpty ) {
-             cell.MemoryText.text = memories[indexPath.row]
+             cell.memoryText.text = memories[indexPath.row]
         }
        
         
@@ -107,15 +116,6 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
             vc.memory = memories[selectedIndex!.row]
         }
     }
-    
-    @IBOutlet weak var TableView: UITableView!
-    @IBOutlet weak var FormView: UIView!
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var MemoryText: UITextView!
-    @IBOutlet weak var PlaceField: UITextField!
-    @IBOutlet weak var PlaceLabel: UILabel!
-    @IBOutlet weak var DateField: UITextField!
-    @IBOutlet weak var DateLabel: UILabel!
-    @IBOutlet weak var SubmitButton: UIButton!
+ 
 
 }

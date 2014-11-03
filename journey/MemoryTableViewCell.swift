@@ -10,6 +10,8 @@ import UIKit
 
 class MemoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var memoryText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +23,4 @@ class MemoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBOutlet weak var MemoryText: UILabel!
 }

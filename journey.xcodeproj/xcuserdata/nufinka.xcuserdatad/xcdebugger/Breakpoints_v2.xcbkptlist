@@ -57,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "journey/LoginViewController.swift"
-            timestampString = "436228978.590102"
+            filePath = "DashboardViewController.swift"
+            timestampString = "436749962.375145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "signUp(_:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "selectMood(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
