@@ -71,7 +71,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             if (!Authentication().isLoggedIn()) {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-                navigationController?.pushViewController(vc, animated: false)
+
+                navigationController!.presentViewController(vc, animated: false, completion: nil)
             } else {
                 dailyTasks.append(explainField.text)
                 tableView.reloadData()

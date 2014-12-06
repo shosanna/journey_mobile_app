@@ -70,7 +70,7 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-                navigationController!.pushViewController(vc, animated: true)
+                navigationController!.presentViewController(vc, animated: false, completion: nil)
             }
 
             

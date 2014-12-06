@@ -14,9 +14,9 @@
 		5B82030A19EF1BA900891F1F /* journeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82030919EF1BA900891F1F /* journeyTests.swift */; };
 		5BA12BC319FFC34000F87061 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA12BC219FFC34000F87061 /* LoginViewController.swift */; };
 		5BA12BC51A00472500F87061 /* MemoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */; };
-		5BAF62891A02D15E00B5B8E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */; };
 		5BAF628C1A03001C00B5B8E8 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */; };
 		5BAF628D1A03001C00B5B8E8 /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */; };
+		5BCC44021A0C254700D24012 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC44011A0C254700D24012 /* DashboardViewController.swift */; };
 		5BD3A7101A0054100038982D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3A70F1A0054100038982D /* ProfileViewController.swift */; };
 		5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */; };
 		5BF9CCCE1A06B4530012974F /* MemoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */; };
@@ -44,9 +44,9 @@
 		5B82030919EF1BA900891F1F /* journeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journeyTests.swift; sourceTree = "<group>"; };
 		5BA12BC219FFC34000F87061 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryDetailViewController.swift; sourceTree = "<group>"; };
-		5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ../DashboardViewController.swift; sourceTree = "<group>"; };
 		5BAF628A1A03001C00B5B8E8 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		5BAF628B1A03001C00B5B8E8 /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
+		5BCC44011A0C254700D24012 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5BD3A70F1A0054100038982D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
 		5BF9CCCA1A0686200012974F /* journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +79,7 @@
 			children = (
 				5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */,
 				5BA12BC41A00472500F87061 /* MemoryDetailViewController.swift */,
-				5BAF62881A02D15E00B5B8E8 /* DashboardViewController.swift */,
+				5BCC44011A0C254700D24012 /* DashboardViewController.swift */,
 				5BD3A70F1A0054100038982D /* ProfileViewController.swift */,
 				5BA12BC219FFC34000F87061 /* LoginViewController.swift */,
 			);
@@ -257,13 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BAF62891A02D15E00B5B8E8 /* DashboardViewController.swift in Sources */,
 				5BA12BC51A00472500F87061 /* MemoryDetailViewController.swift in Sources */,
 				5BF9CCCE1A06B4530012974F /* MemoryTableViewCell.swift in Sources */,
 				5BA12BC319FFC34000F87061 /* LoginViewController.swift in Sources */,
 				5BAF628C1A03001C00B5B8E8 /* DashboardTableViewCell.swift in Sources */,
 				5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */,
 				5BD3A7101A0054100038982D /* ProfileViewController.swift in Sources */,
+				5BCC44021A0C254700D24012 /* DashboardViewController.swift in Sources */,
 				5B8202F419EF1BA900891F1F /* AppDelegate.swift in Sources */,
 				5BF9CCD21A06EA740012974F /* Authentication.swift in Sources */,
 			);
