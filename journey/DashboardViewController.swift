@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var explainField: UITextField!
 
     var dailyTasks = [String]()
+    var moods = [String]()
     var selectedMood = String()
     let token: String! = Authentication().getLoggedKey()
     var currentTask = NSDictionary()
@@ -28,6 +29,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Registering a custom cell
         var nibName = UINib(nibName: "DashboardTableViewCell", bundle: nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "dailyTask")
@@ -37,50 +39,68 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
-
-    }
-
-
-    func refresh(sender:AnyObject)
-    {
+        
         //  Request for current minitask
         if (token != nil) {
             Alamofire.request(.GET, "http://localhost:3000/api/v1/minitasks/current", parameters: ["authentication_token": token])
                 .responseJSON { (_, _, json, _) in
                     self.currentTask = json as NSDictionary
-                    }
-                }
-        
-
-        // Request for all user's minitasks
-        if (token != nil) {
-            Alamofire.request(.GET, "http://localhost:3000/api/v1/minitasks", parameters: ["authentication_token": token ])
-                    .responseJSON { (_, _, JSON, _) in
-        
-                    let minitasks = JSON as NSArray
-                        
-                        self.dailyTasks.removeAll(keepCapacity: false)
-                        for minitask in minitasks {
-                          
-                            var reason = ((minitask as NSDictionary)["reason"]) as? String
-
-                            if reason != nil {
-                                self.dailyTasks.append(reason!)
-                                self.tableView.reloadData()
-                            }
-                            
-                        }
-                }
+                    
+                    // Set texts for mood buttons / every day there are another moods
+                    var title1 = (self.currentTask["choices"] as? [String])![0]
+                    var title2 = (self.currentTask["choices"] as? [String])![1]
+                    var title3 = (self.currentTask["choices"] as? [String])![2]
+                    
+                    self.emotionFirst.setTitle(title1, forState: nil)
+                    self.emotionSecond.setTitle(title2, forState: nil)
+                    self.emotionThird.setTitle(title3, forState: nil)
             }
+        }
+        
+        // Request for all user's minitasks
+        loadAllMinitasks()
+        
+    }
+
+
+    func refresh(sender:AnyObject)
+    {
+        // Request for all user's minitasks
+        loadAllMinitasks()
         self.refreshControl.endRefreshing()
     }
 
-    
+    // Request for all user's minitasks implementation
+    func loadAllMinitasks() {
+        if (token != nil) {
+            Alamofire.request(.GET, "http://localhost:3000/api/v1/minitasks", parameters: ["authentication_token": token ])
+                .responseJSON { (_, _, JSON, _) in
+                    
+                    let minitasks = JSON as NSArray
+                    
+                    self.dailyTasks.removeAll(keepCapacity: false)
+                    self.moods.removeAll(keepCapacity: false)
+                    
+                    //  For each minitask in user's history - save it to local arrays
+                    for minitask in minitasks {
+                        
+                        var reason = ((minitask as NSDictionary)["reason"]) as? String
+                        var mood = ((minitask as NSDictionary)["selected_choice"]) as? String
+                        
+                        if reason != nil && mood != nil {
+                            self.dailyTasks.append(reason!)
+                            self.moods.append(mood!)
+                            self.tableView.reloadData()
+                        }
+                        
+                    }
+            }
+        }
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dailyTasks.count
     }
-
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -90,7 +110,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         if ( dailyTasks.count > 0 && !dailyTasks[indexPath.row].isEmpty ) {
             // Text and title
             cell.dashboardText.text = dailyTasks[indexPath.row]
-            cell.dashboardTitle.text = selectedMood
+            cell.dashboardTitle.text = moods[indexPath.row]
         }
         
         return cell
@@ -104,44 +124,32 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         return !selectedMood.isEmpty
     }
     
+    //    Updating actual minitask which the user completed in the form and sending it to the server
     @IBAction func submitDailyTask(sender: UIButton) {
-        
         infoLabel.hidden = true
  
         if (explainField.hasText() && isMoodSelected()) {
-            if (!Authentication().isLoggedIn()) {
-                presentLoginVC()
-            } else {
-     
             if (token != nil) {
-                Alamofire.request(.PUT, "http://localhost:3000/api/v1/minitasks/145", parameters: [
+                let taskID = currentTask["id"]
+                
+                // Request for update
+                Alamofire.request(.PUT, "http://localhost:3000/api/v1/minitasks/\(taskID)", parameters: [
                     "authentication_token": token,
                     "minitask": [
                         "reason": explainField.text,
                         "selected_choice": selectedMood],
                     ])
-                    .responseJSON { (_, _, json, _) in
-                        println(json)
-                    }
+                explainField.text = ""
                 }
-            explainField.text = ""
-            }
 
         } else {
             infoLabel.hidden = false
             infoLabel.text = "Please select a mood and explain why"
         }
-      
     }
     
-    func presentLoginVC() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-        navigationController!.presentViewController(vc, animated: false, completion: nil)
-    }
-    
+    // Selecting a button will save selected mood
     @IBAction func selectMood(sender: UIButton) {
-        // TODO: there must be a better way :)
         emotionFirst.backgroundColor = UIColor.clearColor()
         emotionSecond.backgroundColor = UIColor.clearColor()
         emotionThird.backgroundColor = UIColor.clearColor()
@@ -150,11 +158,12 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         sender.setNeedsDisplay()
         
         if (sender ==  emotionFirst) {
-           selectedMood = "Fragile"
+           selectedMood = emotionFirst.titleLabel!.text! as String
         } else if ( sender == emotionSecond) {
-            selectedMood = "Crazy"
+            selectedMood = emotionSecond.titleLabel!.text! as String
         } else if ( sender == emotionThird ) {
-            selectedMood = "Sweet"
+            selectedMood = emotionThird.titleLabel!.text! as String
+
         }
     }
     

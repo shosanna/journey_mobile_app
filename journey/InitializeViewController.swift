@@ -9,10 +9,23 @@
 import UIKit
 
 class InitializeViewController: UIViewController {
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Authentication().isLoggedIn() {
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let vc = storyboard.instantiateInitialViewController() as UIViewController
+            
+            presentViewController(vc, animated: false, completion: nil)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        } else {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
+            presentViewController(vc, animated: false, completion: nil)
+        }
 
+        
         // Do any additional setup after loading the view.
     }
 

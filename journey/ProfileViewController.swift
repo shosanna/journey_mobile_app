@@ -13,17 +13,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (!Authentication().isLoggedIn()) {
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-            navigationController!.presentViewController(vc, animated: false, completion: nil)
-        }
-        
 
-        // Do any additional setup after loading the view.
-        //            ALAMOFIRE
-        
     }
 
 }

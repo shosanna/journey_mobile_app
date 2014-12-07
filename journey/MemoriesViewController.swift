@@ -54,26 +54,17 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
         if (placeField.hasText() && dateField.hasText() && memoryText.hasText()) {
             
             infoLabel.hidden = true;
-            
-      
-            if (Authentication().isLoggedIn()) {
-                memories.append(memoryText.text)
-                tableView.reloadData()
+            memories.append(memoryText.text)
+            tableView.reloadData()
                 
-                placeField.text = ""
-                memoryText.text = ""
-                dateField.text = ""
+            placeField.text = ""
+            memoryText.text = ""
+            dateField.text = ""
                 
-                placeField.resignFirstResponder()
-                memoryText.resignFirstResponder()
-                dateField.resignFirstResponder()
-            } else {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                let vc : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginVC") as UIViewController
-                navigationController!.presentViewController(vc, animated: false, completion: nil)
-            }
+            placeField.resignFirstResponder()
+            memoryText.resignFirstResponder()
+            dateField.resignFirstResponder()
 
-            
         } else {
             infoLabel.text = "All fields are required!"
             infoLabel.hidden = false;
