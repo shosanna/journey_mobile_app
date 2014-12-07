@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         var userToken:String?
     
         // Signing in at the server - for testing use test@journeyapp.net / mobileapp
-        Alamofire.request(.POST, "http://localhost:3000/api/v1/tokens", parameters: ["email": email, "password": pass])
+        Alamofire.request(.POST, "http://journeyapp.net/api/v1/tokens", parameters: ["email": email, "password": pass])
             .responseJSON { (_, _, token, _) in
                 userToken = (token! as NSDictionary)["authentication_token"] as NSString
                 if (userToken != nil) {

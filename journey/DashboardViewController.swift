@@ -42,11 +42,11 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //  Request for current minitask
         if (token != nil) {
-            Alamofire.request(.GET, "http://localhost:3000/api/v1/minitasks/current", parameters: ["authentication_token": token])
+            Alamofire.request(.GET, "http://journeyapp.net/api/v1/minitasks/current", parameters: ["authentication_token": token])
                 .responseJSON { (_, _, json, _) in
                     self.currentTask = json as NSDictionary
                     
-                    // Set texts for mood buttons / every day there are another moods
+                    // Set texts for mood buttons / every day there are different moods
                     var title1 = (self.currentTask["choices"] as? [String])![0]
                     var title2 = (self.currentTask["choices"] as? [String])![1]
                     var title3 = (self.currentTask["choices"] as? [String])![2]
@@ -59,7 +59,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Request for all user's minitasks
         loadAllMinitasks()
-        
     }
 
 
@@ -70,29 +69,32 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         self.refreshControl.endRefreshing()
     }
 
-    // Request for all user's minitasks implementation
+    // Request for all user's minitasks
     func loadAllMinitasks() {
         if (token != nil) {
-            Alamofire.request(.GET, "http://localhost:3000/api/v1/minitasks", parameters: ["authentication_token": token ])
+            Alamofire.request(.GET, "http://journeyapp.net/api/v1/minitasks", parameters: ["authentication_token": token ])
                 .responseJSON { (_, _, JSON, _) in
                     
-                    let minitasks = JSON as NSArray
+                    let minitasks = JSON as? NSArray
                     
                     self.dailyTasks.removeAll(keepCapacity: false)
                     self.moods.removeAll(keepCapacity: false)
                     
                     //  For each minitask in user's history - save it to local arrays
-                    for minitask in minitasks {
-                        
-                        var reason = ((minitask as NSDictionary)["reason"]) as? String
-                        var mood = ((minitask as NSDictionary)["selected_choice"]) as? String
-                        
-                        if reason != nil && mood != nil {
-                            self.dailyTasks.append(reason!)
-                            self.moods.append(mood!)
-                            self.tableView.reloadData()
+                    if minitasks != nil {
+                        for minitask in minitasks! {
+                            
+                            var reason = ((minitask as NSDictionary)["reason"]) as? String
+                            var mood = ((minitask as NSDictionary)["selected_choice"]) as? String
+                            
+                            if reason != nil && mood != nil {
+                                self.dailyTasks.append(reason!)
+                                self.moods.append(mood!)
+                                self.tableView.reloadData()
+                            }
+                            
                         }
-                        
+ 
                     }
             }
         }
@@ -133,12 +135,14 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                 let taskID: Int = currentTask["id"] as Int
                 
                 // Request for update
-                Alamofire.request(.PUT, "http://localhost:3000/api/v1/minitasks/\(taskID)", parameters: [
+                Alamofire.request(.PUT, "http://journeyapp.net/api/v1/minitasks/\(taskID)", parameters: [
                     "authentication_token": token,
                     "minitask": [
                         "reason": explainField.text,
                         "selected_choice": selectedMood],
-                    ])
+                    ]).response({ (_, _, _, _) -> Void in
+                        self.loadAllMinitasks()
+                    })
                 explainField.text = ""
                 }
 

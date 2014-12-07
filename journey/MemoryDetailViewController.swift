@@ -15,17 +15,19 @@ class MemoryDetailViewController: UIViewController {
     @IBOutlet weak var memoryDetailText: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    var memory: Memory?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        memoryDetailText.text = memory
+        memoryDetailText.text = memory!.text
         memoryDetailDate.text = "1.1.2014"
 
         
         // 1
         let location = CLLocationCoordinate2D(
-            latitude: 51.50007773,
-            longitude: -0.1246402
+            latitude: memory!.latitude,
+            longitude: memory!.longitude
         )
         // 2
         let span = MKCoordinateSpanMake(0.05, 0.05)
@@ -39,7 +41,4 @@ class MemoryDetailViewController: UIViewController {
         annotation.subtitle = "London"
         mapView.addAnnotation(annotation)
     }
-    
-    var memory: String?
-
-}
+    }

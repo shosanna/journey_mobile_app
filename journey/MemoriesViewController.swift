@@ -8,9 +8,22 @@
 
 import UIKit
 
+class Memory {
+    let text: String
+    let latitude: Double
+    let longitude: Double
+    
+    init(text: String, latitude: Double, longitude: Double) {
+        self.text = text
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+}
+
 class MemoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var memories = [String]()
+    var memories = [Memory]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var formView: UIView!
@@ -54,7 +67,11 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
         if (latField.hasText() && lonField.hasText() && memoryText.hasText()) {
             
             infoLabel.hidden = true;
-            memories.append(memoryText.text)
+            let lat = NSString(string: latField.text).doubleValue
+            let lon = NSString(string: lonField.text).doubleValue
+            
+            let memory = Memory(text: memoryText.text, latitude: lat, longitude: lon)
+            memories.append(memory)
             tableView.reloadData()
                 
             latField.text = ""
@@ -82,8 +99,8 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
         // Cell definition
         let cell = tableView.dequeueReusableCellWithIdentifier("memory", forIndexPath: indexPath) as MemoryTableViewCell
         
-        if ( memories.count > 0 && !memories[indexPath.row].isEmpty ) {
-             cell.memoryText.text = memories[indexPath.row]
+        if (memories.count > 0 && !memories[indexPath.row].text.isEmpty) {
+            cell.memoryText.text = memories[indexPath.row].text
         }
        
         
