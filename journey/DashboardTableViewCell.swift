@@ -10,7 +10,6 @@ import UIKit
 
 class DashboardTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var dashboardDate: UILabel!
     @IBOutlet weak var dashboardImage: UIImageView!
     @IBOutlet weak var dashboardText: UILabel!
     @IBOutlet weak var dashboardTitle: UILabel!

@@ -21,6 +21,10 @@ class Authentication: NSObject {
         return defaults.objectForKey(loginKey) != nil
     }
     
+    func getLoggedKey() -> String? {
+        return defaults.objectForKey(loginKey) as String?
+    }
+    
     func reset() {
         defaults.setObject(nil, forKey: loginKey)
         defaults.synchronize()

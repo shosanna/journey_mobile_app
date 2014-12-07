@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
     
@@ -31,14 +32,26 @@ class LoginViewController: UIViewController {
     @IBAction func signIn(sender: UIButton) {
         infoLabel.hidden = true
         
-        if (signInEmailField.hasText() && signInPassField.hasText()) {
-            Authentication().login("nekdo")
-            self.dismissViewControllerAnimated(false, completion: nil)
-            
-        } else {
-            infoLabel.hidden = false
-            infoLabel.text = "Please enter email and password"
+        let email = signInEmailField.text
+        let pass = signInPassField.text
+        var userToken:String?
+    
+        
+        Alamofire.request(.POST, "http://localhost:3000/api/v1/tokens", parameters: ["email": email, "password": pass])
+            .responseJSON { (_, _, token, _) in
+                userToken = (token! as NSDictionary)["authentication_token"] as NSString
+                println(userToken)
+                if (userToken != nil) {
+                    Authentication().login(userToken!)
+                    self.dismissViewControllerAnimated(false, completion: nil)
+
+                } else {
+                    self.infoLabel.hidden = false
+                    self.infoLabel.text = "Authentication failed"
+                }
         }
+        
+   
     }
     
     @IBAction func signUp(sender: UIButton) {

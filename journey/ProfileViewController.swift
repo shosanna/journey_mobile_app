@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ProfileViewController: UIViewController {
 
@@ -21,6 +22,8 @@ class ProfileViewController: UIViewController {
         
 
         // Do any additional setup after loading the view.
+        //            ALAMOFIRE
+        
     }
 
 }
