@@ -20,6 +20,7 @@
 		5BD3A7101A0054100038982D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3A70F1A0054100038982D /* ProfileViewController.swift */; };
 		5BDDF29919FDB4DB009CF947 /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */; };
 		5BF231ED1A34AE5D007FDA6E /* InitializeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF231EC1A34AE5D007FDA6E /* InitializeViewController.swift */; };
+		5BF231EF1A34D17A007FDA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF231EE1A34D17A007FDA6E /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5BF9CCCE1A06B4530012974F /* MemoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */; };
 		5BF9CCCF1A06B4530012974F /* MemoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF9CCCD1A06B4530012974F /* MemoryTableViewCell.xib */; };
 		5BF9CCD21A06EA740012974F /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9CCD11A06EA740012974F /* Authentication.swift */; };
@@ -73,6 +74,7 @@
 		5BDDF29819FDB4DB009CF947 /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
 		5BF231DF1A331412007FDA6E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		5BF231EC1A34AE5D007FDA6E /* InitializeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializeViewController.swift; sourceTree = "<group>"; };
+		5BF231EE1A34D17A007FDA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BF9CCCA1A0686200012974F /* journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF9CCCB1A0686200012974F /* journeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = journeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF9CCCC1A06B4530012974F /* MemoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF231EF1A34D17A007FDA6E /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 		5B8202E519EF1BA900891F1F = {
 			isa = PBXGroup;
 			children = (
+				5BF231EE1A34D17A007FDA6E /* CoreLocation.framework */,
 				5B8202F019EF1BA900891F1F /* journey */,
 				5B82030619EF1BA900891F1F /* journeyTests */,
 				5BF9CCCA1A0686200012974F /* journey.app */,

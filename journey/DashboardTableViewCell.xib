@@ -28,7 +28,7 @@
                         <rect key="frame" x="78" y="8" width="59" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="59" id="Fr5-aT-lLc"/>
-                            <constraint firstAttribute="width" constant="59" id="xr4-lx-7Wu"/>
+                            <constraint firstAttribute="width" constant="150" id="xr4-lx-7Wu"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="highlightedColor"/>

@@ -16,10 +16,11 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var memoryText: UITextView!
-    @IBOutlet weak var placeField: UITextField!
-    @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var dateField: UITextField!
-    @IBOutlet weak var dateLabel: UILabel!
+
+
+    @IBOutlet weak var latField: UITextField!
+    @IBOutlet weak var lonField: UITextField!
+
     @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
@@ -30,7 +31,6 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
             formView.alpha = 0
             
             memoryText.layer.borderWidth = 0.5;
-            memoryText.layer.borderColor = dateField.layer.borderColor
             memoryText.layer.cornerRadius = 5;
         
             // Registering custom cell
@@ -51,19 +51,19 @@ class MemoriesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func memorySubmit(sender: UIButton) {
-        if (placeField.hasText() && dateField.hasText() && memoryText.hasText()) {
+        if (latField.hasText() && lonField.hasText() && memoryText.hasText()) {
             
             infoLabel.hidden = true;
             memories.append(memoryText.text)
             tableView.reloadData()
                 
-            placeField.text = ""
+            latField.text = ""
             memoryText.text = ""
-            dateField.text = ""
+            lonField.text = ""
                 
-            placeField.resignFirstResponder()
+            latField.resignFirstResponder()
             memoryText.resignFirstResponder()
-            dateField.resignFirstResponder()
+            lonField.resignFirstResponder()
 
         } else {
             infoLabel.text = "All fields are required!"

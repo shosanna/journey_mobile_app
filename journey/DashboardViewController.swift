@@ -130,7 +130,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
  
         if (explainField.hasText() && isMoodSelected()) {
             if (token != nil) {
-                let taskID = currentTask["id"]
+                let taskID: Int = currentTask["id"] as Int
                 
                 // Request for update
                 Alamofire.request(.PUT, "http://localhost:3000/api/v1/minitasks/\(taskID)", parameters: [

@@ -36,11 +36,10 @@ class LoginViewController: UIViewController {
         let pass = signInPassField.text
         var userToken:String?
     
-        
+        // Signing in at the server - for testing use test@journeyapp.net / mobileapp
         Alamofire.request(.POST, "http://localhost:3000/api/v1/tokens", parameters: ["email": email, "password": pass])
             .responseJSON { (_, _, token, _) in
                 userToken = (token! as NSDictionary)["authentication_token"] as NSString
-                println(userToken)
                 if (userToken != nil) {
                     Authentication().login(userToken!)
                     self.dismissViewControllerAnimated(false, completion: nil)
@@ -54,11 +53,11 @@ class LoginViewController: UIViewController {
    
     }
     
+    // TODO Server signup!
     @IBAction func signUp(sender: UIButton) {
         Authentication().login("nekdo")
         LoginHelper.preventDismiss = false
         self.dismissViewControllerAnimated(false, completion: nil)
-        
     }
     
     
