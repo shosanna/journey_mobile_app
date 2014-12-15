@@ -11,10 +11,11 @@ import Alamofire
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var checkEmail: UILabel!
+    
     @IBOutlet weak var signInEmailField: UITextField!
     @IBOutlet weak var signInPassField: UITextField!
     @IBOutlet weak var singUpEmailField: UITextField!
-    @IBOutlet weak var infoLabel: UILabel!
     
     @IBOutlet weak var goToSignIn: UIButton!
     @IBOutlet weak var goToSignUp: UIButton!
@@ -27,10 +28,11 @@ class LoginViewController: UIViewController {
         if ((!self.isBeingPresented()) && LoginHelper.preventDismiss.boolValue == false) {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+        
+        
     }
     
     @IBAction func signIn(sender: UIButton) {
-        infoLabel.hidden = true
         
         let email = signInEmailField.text
         let pass = signInPassField.text
@@ -44,9 +46,6 @@ class LoginViewController: UIViewController {
                     Authentication().login(userToken!)
                     self.dismissViewControllerAnimated(false, completion: nil)
 
-                } else {
-                    self.infoLabel.hidden = false
-                    self.infoLabel.text = "Authentication failed"
                 }
         }
         
@@ -55,9 +54,7 @@ class LoginViewController: UIViewController {
     
     // TODO Server signup!
     @IBAction func signUp(sender: UIButton) {
-        Authentication().login("nekdo")
-        LoginHelper.preventDismiss = false
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.checkEmail.alpha = 1
     }
     
     

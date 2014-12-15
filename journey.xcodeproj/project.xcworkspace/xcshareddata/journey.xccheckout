@@ -22,7 +22,7 @@
 		<key>3F6E70C4BDB63BF9B4F9FBFA3294D811216F42F9</key>
 		<string>../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../Alamofire/</string>
+		<string>../../Alamofire</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:shosanna/journey_mobile_app.git</string>

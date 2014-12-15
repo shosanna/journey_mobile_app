@@ -29,6 +29,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.backgroundColor = UIColor(red: 227, green: 224, blue: 214, alpha: 0.8)
         
         // Registering a custom cell
         var nibName = UINib(nibName: "DashboardTableViewCell", bundle: nil)
@@ -113,10 +115,12 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             // Text and title
             cell.dashboardText.text = dailyTasks[indexPath.row]
             cell.dashboardTitle.text = moods[indexPath.row]
+            
         }
         
         return cell
     }
+   
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 85.0
@@ -154,21 +158,25 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Selecting a button will save selected mood
     @IBAction func selectMood(sender: UIButton) {
-        emotionFirst.backgroundColor = UIColor.clearColor()
-        emotionSecond.backgroundColor = UIColor.clearColor()
-        emotionThird.backgroundColor = UIColor.clearColor()
-        
-        sender.backgroundColor = UIColor.lightGrayColor()
-        sender.setNeedsDisplay()
         
         if (sender ==  emotionFirst) {
            selectedMood = emotionFirst.titleLabel!.text! as String
+           self.emotionFirst.alpha = 1
+           self.emotionSecond.alpha = 0.7
+           self.emotionThird.alpha = 0.7
         } else if ( sender == emotionSecond) {
             selectedMood = emotionSecond.titleLabel!.text! as String
+            self.emotionSecond.alpha = 1
+            self.emotionFirst.alpha = 0.7
+            self.emotionThird.alpha = 0.7
         } else if ( sender == emotionThird ) {
             selectedMood = emotionThird.titleLabel!.text! as String
+            self.emotionThird.alpha = 1
+            self.emotionSecond.alpha = 0.7
+            self.emotionFirst.alpha = 0.7
 
         }
+
     }
     
 }

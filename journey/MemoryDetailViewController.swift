@@ -21,8 +21,6 @@ class MemoryDetailViewController: UIViewController {
         super.viewDidLoad()
 
         memoryDetailText.text = memory!.text
-        memoryDetailDate.text = "1.1.2014"
-
         
         // 1
         let location = CLLocationCoordinate2D(
