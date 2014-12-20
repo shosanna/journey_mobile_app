@@ -152,7 +152,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
 
         } else {
             infoLabel.hidden = false
-            infoLabel.text = "Please select a mood and explain why"
+            infoLabel.text = "Select and describe mood"
         }
     }
     

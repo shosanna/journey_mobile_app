@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var checkEmail: UILabel!
     
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var signInEmailField: UITextField!
     @IBOutlet weak var signInPassField: UITextField!
     @IBOutlet weak var singUpEmailField: UITextField!
@@ -25,6 +26,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        infoLabel.hidden = true
         if ((!self.isBeingPresented()) && LoginHelper.preventDismiss.boolValue == false) {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -40,12 +42,17 @@ class LoginViewController: UIViewController {
     
         // Signing in at the server - for testing use test@journeyapp.net / mobileapp
         Alamofire.request(.POST, "http://journeyapp.net/api/v1/tokens", parameters: ["email": email, "password": pass])
-            .responseJSON { (_, _, token, _) in
-                userToken = (token! as NSDictionary)["authentication_token"] as NSString
-                if (userToken != nil) {
+            .responseJSON { (_, _, response, _) in
+                let hash = response! as Dictionary<String, String>;
+                
+                if (hash["authentication_token"] != nil) {
+                    userToken = hash["authentication_token"]
                     Authentication().login(userToken!)
                     self.dismissViewControllerAnimated(false, completion: nil)
 
+                } else {
+                   self.infoLabel.text = "Authentication failed"
+                    self.infoLabel.hidden = false
                 }
         }
         
